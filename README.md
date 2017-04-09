@@ -9,7 +9,7 @@ Got iOS? You'll love [iBurn for iOS](https://github.com/Burning-Man-Earth/iBurn-
 ## Installation
 
 * Make sure your Android SDK packages are up to date.
-* `$ git clone https://github.com/Burning-Man-Earth/iBurn-Android --recursive`
+* `$ git clone https://github.com/yuvalbl/iBurn-Android --recursive`
 * `$ cd ./iBurn-Android`
 * `$ touch ./iBurn/src/main/java/com/gaiagps/iburn/SECRETS.java && open ./iBurn/src/main/java/com/gaiagps/iburn/SECRETS.java`
 * Copy the following into SECRETS.java:
@@ -26,6 +26,8 @@ Got iOS? You'll love [iBurn for iOS](https://github.com/Burning-Man-Earth/iBurn-
     }
     ```
 * `$ ./gradlew assembleDebug` or from Android Studio invoke 'Import Project' and select the `./iBurn-Android` directory.
+* update gradle script for module: `android-gmaps-addons` - change the following in build.gradle:
+    in `defaultConfig` change `minSdkVersion` from  9 to 14
 
 **Note**: Camp, Art and Event location data (`camps.json`, `art.json`, `events.json`) are embargoed by the Burning Man Organization until the gates open each year. Sorry!
 
