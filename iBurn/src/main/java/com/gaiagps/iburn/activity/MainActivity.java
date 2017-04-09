@@ -480,12 +480,14 @@ public class MainActivity extends AppCompatActivity implements SearchQueryProvid
     }
 
     private void checkForCrashes() {
-        CrashManager.register(this, HOCKEY_ID);
+//      used for crash report on Original iBurn app - not required for iMidburn (2017) - Yuval bar levi
+//        CrashManager.register(this, HOCKEY_ID);
     }
 
     private void checkForUpdates() {
         // Remove this for store builds!
-        UpdateManager.register(this, HOCKEY_ID);
+//      used for analytics on Original iBurn app - not required for iMidburn (2017) - Yuval bar levi
+//        UpdateManager.register(this, HOCKEY_ID);
     }
 
     public void clearEmbargoSnackbar() {
