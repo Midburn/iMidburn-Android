@@ -30,7 +30,8 @@
         android:ellipsize="end"
         android:gravity="center_vertical"
         android:paddingTop="0dp"
-        android:singleLine="true"
+        android:singleLine="false"
+        android:maxLines="2"
         android:text="Camp Firewood"
         android:textSize="24sp"
         android:textStyle="bold" />

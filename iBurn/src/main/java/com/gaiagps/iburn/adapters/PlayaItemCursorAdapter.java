@@ -15,6 +15,7 @@ import com.gaiagps.iburn.Constants;
 import com.gaiagps.iburn.R;
 import com.gaiagps.iburn.database.PlayaItemTable;
 import com.gaiagps.iburn.location.LocationProvider;
+import com.gaiagps.iburn.view.Utils;
 
 import java.util.Arrays;
 
@@ -102,8 +103,8 @@ public abstract class PlayaItemCursorAdapter<T extends PlayaItemCursorAdapter.Vi
             addressCol = cursor.getColumnIndexOrThrow(PlayaItemTable.playaAddress);
         }
 
-        viewHolder.titleView.setText(cursor.getString(titleCol));
-        viewHolder.descView.setText(cursor.getString(descCol));
+        viewHolder.titleView.setText(Utils.formatMultilang(cursor.getString(titleCol)));
+        viewHolder.descView.setText(Utils.formatMultilang(cursor.getString(descCol)));
 
         AdapterUtils.setDistanceText(deviceLocation, viewHolder.walkTimeView, viewHolder.bikeTimeView,
                 cursor.getDouble(latCol), cursor.getDouble(lonCol));
