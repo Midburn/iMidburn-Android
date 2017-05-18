@@ -61,6 +61,7 @@ import com.google.android.gms.maps.model.TileOverlayOptions;
 import com.google.android.gms.maps.model.VisibleRegion;
 import com.squareup.sqlbrite.SqlBrite;
 
+import java.io.File;
 import java.util.ArrayDeque;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -72,6 +73,7 @@ import hugo.weaving.DebugLog;
 import rx.Observable;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 import rx.subjects.PublishSubject;
 import timber.log.Timber;
 
@@ -87,10 +89,10 @@ public class GoogleMapFragment extends SupportMapFragment implements Searchable 
      * Used to determining whether a location lies
      * within the general vicinity
      */
-    public static final double MAX_LAT = 40.812161;
-    public static final double MAX_LON = -119.170061;
-    public static final double MIN_LAT = 40.764702;
-    public static final double MIN_LON = -119.247798;
+    public static final double MAX_LAT = 30.89903;
+    public static final double MAX_LON = 34.75378;
+    public static final double MIN_LAT = 30.88642;
+    public static final double MIN_LON = 34.76911;
 
     public static final LatLngBounds BRC_BOUNDS = LatLngBounds.builder()
             .include(new LatLng(MAX_LAT, MIN_LON))
@@ -135,7 +137,7 @@ public class GoogleMapFragment extends SupportMapFragment implements Searchable 
     private STATE mState = STATE.EXPLORE;
 
     private final double POI_ZOOM_LEVEL = 16.5;
-    float currentZoom = 0;
+    float currentZoom = 4;
 
     private final PublishSubject<VisibleRegion> cameraUpdate = PublishSubject.create();
 
@@ -375,12 +377,10 @@ public class GoogleMapFragment extends SupportMapFragment implements Searchable 
                 .subscribe(evaluatorLocationPair -> {
                     //Timber.d("Geocoding");
                     evaluatorLocationPair.first.reverseGeocode(evaluatorLocationPair.second.getLatitude(),
-                            evaluatorLocationPair.second.getLongitude(), playaAddress -> {
-                                addressLabel.post(() -> {
-                                    addressLabel.setVisibility(View.VISIBLE);
-                                    addressLabel.setText(playaAddress);
-                                });
-                            });
+                            evaluatorLocationPair.second.getLongitude(), playaAddress -> addressLabel.post(() -> {
+                                addressLabel.setVisibility(View.VISIBLE);
+                                addressLabel.setText(playaAddress);
+                            }));
                 });
     }
 
@@ -466,8 +466,9 @@ public class GoogleMapFragment extends SupportMapFragment implements Searchable 
         getMapAsync(googleMap -> {
 
             UiSettings settings = googleMap.getUiSettings();
-            settings.setZoomControlsEnabled(false);
-            settings.setMapToolbarEnabled(false);
+            settings.setZoomControlsEnabled(true);
+            settings.setMapToolbarEnabled(true);
+            settings.setAllGesturesEnabled(true);
             settings.setScrollGesturesEnabled(mState != STATE.SHOWCASE);
 
             // TODO: If user location present, start there

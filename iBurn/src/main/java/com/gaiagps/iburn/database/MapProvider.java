@@ -1,15 +1,12 @@
 package com.gaiagps.iburn.database;
 
 import android.content.Context;
-import android.os.Environment;
 
 import com.gaiagps.iburn.Bytestreams;
-import com.gaiagps.iburn.Constants;
 import com.gaiagps.iburn.PrefsHelper;
 import com.gaiagps.iburn.R;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.IOException;
@@ -30,7 +27,7 @@ import timber.log.Timber;
  */
 public class MapProvider {
 
-    public static final String MBTILE_DESTINATION = "iburn2016.mbtiles";
+    public static final String MBTILE_DESTINATION = "tiles.mbtiles";
 
     /** Key for mbtiles version stored in {@link PrefsHelper} and retrieved by {@link com.gaiagps.iburn.api.IBurnService}
      * for tile updating.
@@ -67,7 +64,7 @@ public class MapProvider {
         if (!writingFile.getAndSet(true)) {
             Observable.just(mapDatabaseFile)
                     .subscribeOn(Schedulers.io())
-                    .doOnNext(destFile -> copyResourceToFile(context, R.raw.iburn, destFile))
+                    .doOnNext(destFile -> copyResourceToFile(context, R.raw.tiles, destFile))
                     .subscribe(databaseSubject::onNext);
         }
 
@@ -99,7 +96,7 @@ public class MapProvider {
      */
     private File getMBTilesFile(long version) {
         return new File(String.format("%s/iburn/tiles/%s.%d", context.getFilesDir().getAbsolutePath(),
-                MBTILE_DESTINATION, version));
+                MBTILE_DESTINATION, 0));
     }
 
     private static boolean copyResourceToFile(Context c, int resourceId, File destination) {
