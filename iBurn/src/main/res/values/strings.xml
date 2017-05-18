@@ -62,11 +62,13 @@
     <string name="email_feedback">Email Feedback</string>
 
     <!-- WelcomeActivity -->
+    <string name="fragment1_main_title">Welcome Home\nברוכות הבאים הביתה</string>
+    <string name="fragment1_subtitle">Midburn 2017 מידברן</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="place_custom_markers_tip">You can place custom markers at any time from the map.</string>
     <string name="home_camp_hint">Home Camp Name</string>
     <string name="mark_home_camp">Mark Home Camp?</string>
-    <string name="location_data_notice">Burning Man policy requires that iBurn not display Camp, Event, and Art locations until gates open or you arrive on the Playa.</string>
+    <string name="location_data_notice">Midburn Man policy requires that iBurn not display Camp, Event, and Art locations until gates open or you arrive on the Playa.</string>
     <string name="location_notice_title">A Word on Location \n מילה על המקום</string>
     <string name="no_now_items">Check back once you get to Burning Man</string>
     <string name="audio_tour_art_only">AUDIO TOUR \n סיור קולי</string>
