@@ -39,6 +39,7 @@ import com.gaiagps.iburn.database.PlayaDatabase;
 import com.gaiagps.iburn.database.PlayaItemTable;
 import com.gaiagps.iburn.fragment.GoogleMapFragment;
 import com.gaiagps.iburn.view.AnimatedFloatingActionButton;
+import com.gaiagps.iburn.view.Utils;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -233,7 +234,7 @@ public class PlayaItemViewActivity extends AppCompatActivity implements PlayerHa
                     try {
                         if (itemCursor != null && itemCursor.moveToFirst()) {
                             final String title = itemCursor.getString(itemCursor.getColumnIndexOrThrow(PlayaItemTable.name));
-                            titleTextView.setText(title);
+                            titleTextView.setText(Utils.formatMultilang(title));
                             isFavorite = itemCursor.getInt(itemCursor.getColumnIndex(PlayaItemTable.favorite)) == 1;
                             setFavorite(isFavorite, false);
 
@@ -242,7 +243,7 @@ public class PlayaItemViewActivity extends AppCompatActivity implements PlayerHa
                             favoriteButton.setOnClickListener(favoriteButtonOnClickListener);
 
                             if (!itemCursor.isNull(itemCursor.getColumnIndex(PlayaItemTable.description))) {
-                                ((TextView) findViewById(R.id.body)).setText(itemCursor.getString(itemCursor.getColumnIndexOrThrow(PlayaItemTable.description)));
+                                ((TextView) findViewById(R.id.body)).setText(Utils.formatMultilang(itemCursor.getString(itemCursor.getColumnIndexOrThrow(PlayaItemTable.description))));
                             } else
                                 findViewById(R.id.body).setVisibility(View.GONE);
 
@@ -466,7 +467,7 @@ public class PlayaItemViewActivity extends AppCompatActivity implements PlayerHa
                                             .subscribe(campCursor -> {
                                                 if (campCursor != null && campCursor.moveToFirst()) {
                                                     hostedByCamp.setOnClickListener(new RelatedItemOnClickListener(campCursor.getInt(campCursor.getColumnIndex(PlayaItemTable.id)), Constants.PlayaItemType.CAMP));
-                                                    String campName = campCursor.getString(campCursor.getColumnIndex(PlayaItemTable.name));
+                                                    String campName = Utils.formatMultilang(campCursor.getString(campCursor.getColumnIndex(PlayaItemTable.name)));
                                                     hostedByCamp.setText("Hosted by " + campName);
                                                     campCursor.close();
                                                 }
