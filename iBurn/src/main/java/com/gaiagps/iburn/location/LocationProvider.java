@@ -7,6 +7,7 @@ import android.os.SystemClock;
 
 import com.gaiagps.iburn.BuildConfig;
 import com.gaiagps.iburn.PermissionManager;
+import com.gaiagps.iburn.fragment.GoogleMapFragment;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.LocationSource;
 
@@ -34,10 +35,10 @@ public class LocationProvider {
     private static Location lastMockLocation;
     private static PublishSubject<Location> mockLocationSubject = PublishSubject.create();
 
-    private static final double MAX_MOCK_LAT = 40.8037;
-    private static final double MIN_MOCK_LAT = 40.7727;
-    private static final double MAX_MOCK_LON = -119.1851;
-    private static final double MIN_MOCK_LON = -119.2210;
+    private static final double MAX_MOCK_LAT = GoogleMapFragment.MAX_LAT;
+    private static final double MIN_MOCK_LAT = GoogleMapFragment.MIN_LAT;
+    private static final double MAX_MOCK_LON = GoogleMapFragment.MAX_LON;
+    private static final double MIN_MOCK_LON = GoogleMapFragment.MIN_LON;
 
     public static Observable<Location> getLastLocation(Context context) {
         init(context);

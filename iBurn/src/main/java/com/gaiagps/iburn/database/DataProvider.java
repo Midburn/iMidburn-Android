@@ -23,7 +23,6 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import rx.Observable;
-import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 import timber.log.Timber;
 

@@ -7,8 +7,8 @@ import android.location.Location;
  */
 public class Geo {
 
-    public static final double MAN_LAT = 40.7864;
-    public static final double MAN_LON = -119.2065;
+    public static final double MAN_LAT = 30.89362;
+    public static final double MAN_LON = 34.75945;
 
     private static float[] sResult = new float[1];
 
