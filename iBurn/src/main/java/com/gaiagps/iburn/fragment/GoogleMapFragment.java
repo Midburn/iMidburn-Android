@@ -3,9 +3,12 @@ package com.gaiagps.iburn.fragment;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.util.Pair;
@@ -20,6 +23,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -45,6 +49,7 @@ import com.gaiagps.iburn.database.PlayaItemTable;
 import com.gaiagps.iburn.database.UserPoiTable;
 import com.gaiagps.iburn.js.JSEvaluator;
 import com.gaiagps.iburn.location.LocationProvider;
+import com.gaiagps.iburn.view.Utils;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -494,6 +499,37 @@ public class GoogleMapFragment extends SupportMapFragment implements Searchable 
                 }
             });
 
+            googleMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+
+                @Override
+                public View getInfoWindow(Marker arg0) {
+                    return null;
+                }
+
+                @Override
+                public View getInfoContents(Marker marker) {
+                    Context context = getContext(); //or getActivity(), YourActivity.this, etc.
+
+                    LinearLayout info = new LinearLayout(context);
+                    info.setOrientation(LinearLayout.VERTICAL);
+
+                    TextView title = new TextView(context);
+                    title.setTextColor(Color.BLACK);
+                    title.setGravity(Gravity.CENTER);
+                    title.setTypeface(null, Typeface.BOLD);
+                    title.setText(marker.getTitle());
+
+                    TextView snippet = new TextView(context);
+                    snippet.setTextColor(Color.GRAY);
+                    snippet.setText(marker.getSnippet());
+
+                    info.addView(title);
+                    info.addView(snippet);
+
+                    return info;
+                }
+            });
+
             googleMap.setOnCameraIdleListener(new GoogleMap.OnCameraIdleListener() {
 
                 /** Lat, Lon tolerance used to determine if location within BRC boundaries */
@@ -845,7 +881,7 @@ public class GoogleMapFragment extends SupportMapFragment implements Searchable 
                 // We should re-use the eldest Marker
                 Marker marker = mMappedTransientMarkers.remove();
                 marker.setPosition(pos);
-                marker.setTitle(cursor.getString(cursor.getColumnIndex(ArtTable.name)));
+                marker.setTitle(Utils.formatMultilang(cursor.getString(cursor.getColumnIndex(ArtTable.name))));
 
                 Constants.PlayaItemType modelType = DataProvider.getTypeValue(itemType);
                 switch (modelType) {
@@ -877,7 +913,7 @@ public class GoogleMapFragment extends SupportMapFragment implements Searchable 
                 cursor.getDouble(cursor.getColumnIndex(PlayaItemTable.longitude)));
         MarkerOptions markerOptions;
         markerOptions = new MarkerOptions().position(pos)
-                .title(cursor.getString(cursor.getColumnIndex(PlayaItemTable.name)));
+                .title(Utils.formatMultilang(cursor.getString(cursor.getColumnIndex(PlayaItemTable.name))));
 
         Constants.PlayaItemType modelType = DataProvider.getTypeValue(itemType);
         switch (modelType) {

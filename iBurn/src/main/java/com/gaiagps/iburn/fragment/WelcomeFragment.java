@@ -24,6 +24,7 @@ import com.gaiagps.iburn.database.CampTable;
 import com.gaiagps.iburn.database.DataProvider;
 import com.gaiagps.iburn.database.PlayaDatabase;
 import com.gaiagps.iburn.database.PlayaItemTable;
+import com.gaiagps.iburn.view.Utils;
 import com.squareup.sqlbrite.SqlBrite;
 
 import java.io.IOException;
@@ -67,7 +68,7 @@ public class WelcomeFragment extends Fragment implements TextureView.SurfaceText
                 Cursor campCursor = ((Cursor) campSearchView.getAdapter().getItem(position));
                 HomeCampSelectionListener.CampSelection selection = new HomeCampSelectionListener.CampSelection(campCursor.getDouble(campCursor.getColumnIndex(CampTable.latitude)),
                         campCursor.getDouble(campCursor.getColumnIndex(CampTable.longitude)),
-                        campCursor.getString(campCursor.getColumnIndex(CampTable.name)));
+                        Utils.formatMultilang(campCursor.getString(campCursor.getColumnIndex(CampTable.name))));
                 campSearchView.setTag(selection);
                 Timber.d("Item selected %s", campSearchView.getText().toString());
 
@@ -195,7 +196,7 @@ public class WelcomeFragment extends Fragment implements TextureView.SurfaceText
 
                 cursor.moveToPosition(position);
 
-                ((TextView) convertView).setText(cursor.getString(cursor.getColumnIndex(PlayaItemTable.name)));
+                ((TextView) convertView).setText(Utils.formatMultilang(cursor.getString(cursor.getColumnIndex(PlayaItemTable.name))));
             }
 
             return convertView;
@@ -248,7 +249,7 @@ public class WelcomeFragment extends Fragment implements TextureView.SurfaceText
             public CharSequence convertResultToString(Object result) {
                 if (result instanceof Cursor) {
                     Cursor cursorResult = (Cursor) result;
-                    return cursorResult.getString(cursorResult.getColumnIndex(PlayaItemTable.name));
+                    return Utils.formatMultilang(cursorResult.getString(cursorResult.getColumnIndex(PlayaItemTable.name)));
                 }
                 return super.convertResultToString(result);
             }

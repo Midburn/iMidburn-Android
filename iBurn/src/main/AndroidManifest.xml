@@ -24,7 +24,7 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="GOOGLE_MAP_KEY"/>
+            android:value="AIzaSyCtCRvGQ3gngeDZDIw7bHjNUkbXWAxrIQw"/>
 
         <!-- HockeyApp -->
         <activity android:name="net.hockeyapp.android.UpdateActivity" />

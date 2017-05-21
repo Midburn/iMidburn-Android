@@ -12,4 +12,10 @@ public class Utils {
     public static double clamp(double value, double low, double high) {
         return Math.min(Math.max(value, low), high);
     }
+
+    public static String formatMultilang(String text) {
+        if (text == null) return "";
+        String[] split = text.split(";;");
+        return split[0] + (split.length > 1 ? " \n" + split[1] : "");
+    }
 }

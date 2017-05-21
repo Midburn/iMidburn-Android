@@ -30,7 +30,6 @@
         android:ellipsize="end"
         android:gravity="center_vertical"
         android:paddingTop="0dp"
-        android:singleLine="true"
         android:text="Can of Soup"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -44,7 +43,7 @@
         android:ellipsize="end"
         android:gravity="center_vertical"
         android:paddingTop="0dp"
-        android:singleLine="true"
+        android:visibility="gone"
         android:text="Joe Artist"
         android:textSize="20sp" />
 
@@ -96,6 +95,7 @@
         android:ellipsize="end"
         android:gravity="right"
         android:paddingTop="0dp"
+        android:layoutDirection="rtl"
         android:singleLine="true"
         android:text="7:00 &amp; Esplanade"
         android:textColor="@color/sub_text"
