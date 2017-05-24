@@ -130,7 +130,7 @@
 
     </android.support.v4.widget.NestedScrollView>
 
-    <com.gaiagps.iburn.view.AnimatedFloatingActionButton
+    <com.elders.imidburn.view.AnimatedFloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

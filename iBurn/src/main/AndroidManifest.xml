@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gaiagps.iburn" >
+    package="com.elders.imidburn">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -14,7 +14,7 @@
         android:required="true" />
 
     <application
-        android:name="com.gaiagps.iburn.iBurnApp"
+        android:name="com.elders.imidburn.iMidburnApp"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -29,13 +29,13 @@
         <!-- HockeyApp -->
         <activity android:name="net.hockeyapp.android.UpdateActivity" />
         <activity
-            android:name=".activity.WelcomeActivity"
+            android:name="com.elders.imidburn.activity.WelcomeActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.elders.imidburn.activity.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" >
@@ -46,18 +46,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.PlayaItemViewActivity"
+            android:name="com.elders.imidburn.activity.PlayaItemViewActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".activity.SearchActivity"
+            android:name="com.elders.imidburn.activity.SearchActivity"
             android:screenOrientation="portrait"
             android:label="@string/title_activity_search" >
         </activity>
 
         <!-- GCM Network Manager -->
         <service
-            android:name=".service.DataUpdateService"
+            android:name="com.elders.imidburn.service.DataUpdateService"
             android:exported="true"
             android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE" >
             <intent-filter>
@@ -78,7 +78,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.gaiagps.iburn.fileprovider"
+            android:authorities="com.elders.imidburn.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

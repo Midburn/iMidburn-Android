@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">iBurn</string>
+    <string name="app_name">iMidburn</string>
 
     <!-- MainActivity Tabs -->
     <string name="fav_tab">Faves️ \n מועדפים</string>
@@ -34,9 +34,9 @@
     <string name="search_title">Search חפש</string>
     <string name="search_hint">Search חפש</string>
     <string name="title_activity_search_results">SearchResultsActivity</string>
-    <string name="starts">Starts /n מתחיל</string>
-    <string name="ended">Ended /n הסתיים</string>
-    <string name="ends">Ends /n הסתיים</string>
+    <string name="starts">Starts \n מתחיל</string>
+    <string name="ended">Ended \n הסתיים</string>
+    <string name="ends">Ends \n הסתיים</string>
     <string name="home">Home</string>
     <string name="tab_time">TIME</string>
     <string name="any_type">ALL TYPES \n כל הסוגים</string>
@@ -52,13 +52,13 @@
     <string name="enter_unlock_password">Enter Unlock Password</string>
     <string name="title_activity_search">SearchActivity</string>
 
-    <string name="action_settings">Settings /n הגדרות</string>
+    <string name="action_settings">Settings \n הגדרות</string>
     <string name="embargo_snackbar_msg">Art, Camp, and Event Location Data is embargoed until %s. Swipe to dismiss.</string>
     <string name="also_at">Other Occurrences</string>
     <string name="hosted_events">Hosted Events</string>
-    <string name="send_feedback">Send Feedback /n שלח משוב</string>
-    <string name="we_love_feedback">We ❤ Feedback /n אנחנו ❤ משובים</string>
-    <string name="feedback_hint">What do you think? /n מה דעתך?</string>
+    <string name="send_feedback">Send Feedback \n שלח משוב</string>
+    <string name="we_love_feedback">We ❤ Feedback \n אנחנו ❤ משובים</string>
+    <string name="feedback_hint">What do you think? \n מה דעתך?</string>
     <string name="email_feedback">Email Feedback</string>
 
     <!-- WelcomeActivity -->
@@ -70,7 +70,7 @@
     <string name="mark_home_camp">Mark Home Camp?</string>
     <string name="location_data_notice">Midburn Man policy requires that iBurn not display Camp, Event, and Art locations until gates open or you arrive on the Playa.</string>
     <string name="location_notice_title">A Word on Location \n מילה על המקום</string>
-    <string name="no_now_items">Check back once you get to Burning Man</string>
+    <string name="no_now_items">Nothing going on right now \n אין אירועים כרגע</string>
     <string name="audio_tour_art_only">AUDIO TOUR \n סיור קולי</string>
     <string name="all_art">ALL \n הכל</string>
     <string name="play_audio_tour">Play Audio Tour \n נגן סיור קולי</string>

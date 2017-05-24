@@ -6,7 +6,7 @@
         disabled="true" />
 
     <plugin
-        name="com.gaiagps.iburn.MaterialExpandableNotificationPlugin"
+        name="com.elders.imidburn.MaterialExpandableNotificationPlugin"
         enabled="true"/>
 
 </config>
