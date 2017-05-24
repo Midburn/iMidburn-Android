@@ -10,19 +10,19 @@
         android:clipToPadding="false"
         android:orientation="vertical">
 
-        <com.gaiagps.iburn.view.BrowseListHeader
+        <com.elders.imidburn.view.BrowseListHeader
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/top_margin" />
 
-        <com.gaiagps.iburn.view.EventListHeader
+        <com.elders.imidburn.view.EventListHeader
             android:id="@+id/eventHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone" />
 
-        <com.gaiagps.iburn.view.ArtListHeader
+        <com.elders.imidburn.view.ArtListHeader
             android:id="@+id/artHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="right" />
 
-    <com.gaiagps.iburn.adapters.SimpleSectionTitleIndicator
+    <com.elders.imidburn.adapters.SimpleSectionTitleIndicator
         android:id="@+id/fastScrollerSectionIndicator"
         android:layout_width="wrap_content"
         android:paddingRight="16dp"

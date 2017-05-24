@@ -5,10 +5,11 @@ android:layout_height="match_parent"
 android:clipToPadding="false"
 android:orientation="vertical">
 
-<com.gaiagps.iburn.view.ArtListHeader
+<com.elders.imidburn.view.ArtListHeader
     android:id="@+id/header"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:visibility="gone"
     android:layout_marginTop="@dimen/top_margin" />
 
 <TextView

@@ -25,8 +25,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 21
-        versionName "2017.0.0.0"
+        versionCode 27
+        versionName "2017.0.0.4"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         archivesBaseName = "iburn-$versionName-$versionCode"
@@ -68,6 +68,7 @@ android {
             minifyEnabled false
             signingConfig null
             debuggable false
+            applicationIdSuffix ".debug"
         }
     }
 
